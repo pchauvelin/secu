@@ -1,0 +1,345 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[cyr]{aeguill}
+\usepackage[frenchb]{babel}
+
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{textcomp}
+
+
+\usepackage{lmodern}
+\usepackage{layout}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage{setspace}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{shorttoc}
+\usepackage{glossaries}
+\usepackage{nameref}
+
+%\usepackage{bibunits}
+
+% Support \url
+\usepackage{url}
+
+\usepackage{color}
+
+\usepackage{multibib}
+\newcites{bib}{Bibliographie}
+\newcites{sit}{Sitographie}
+
+
+
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{10}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.70}
+\renewcommand{\floatpagefraction}{0.66}
+
+% Eviter qu'une note ne s'étale sur plusieurs pages
+\interfootnotelinepenalty=10000
+
+
+% Ajout d'un style de batard sur le header
+\makeatletter
+%\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+%\def\@makechapterhead#1{%
+%  \vspace*{10\p@}%
+%  {\parindent \z@
+%    {\raggedleft \reset@font
+%      \scshape \@chapapp{} \thechapter\par\nobreak}%
+%    \par\nobreak
+%    \vspace*{30\p@}
+%    \interlinepenalty\@M
+%    {\raggedright \Huge \bfseries #1}%
+%    \par\nobreak
+%    \hrulefill
+%    \par\nobreak
+%    \vskip 100\p@
+%  }}
+%\def\@makeschapterhead#1{%
+%  \vspace*{10\p@}%
+%  {\parindent \z@
+%    {\raggedleft \reset@font
+%      \scshape \vphantom{\@chapapp{} \thechapter}\par\nobreak}%
+%    \par\nobreak
+%    \vspace*{30\p@}
+%    \interlinepenalty\@M
+%    {\raggedright \Huge \bfseries #1}%
+%    \par\nobreak
+%    \hrulefill
+%    \par\nobreak
+%    \vskip 100\p@
+%  }}
+
+% Celui-ci est bien aussi
+ \def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+ \def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge\bfseries \thechapter }
+        \par\nobreak
+        \vspace*{10\p@}%
+        \interlinepenalty\@M
+        \hrule
+        \vspace*{10\p@}%
+        \Huge \bfseries #1\par\nobreak
+        \par
+        \vspace*{10\p@}%
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge\bfseries \vphantom{\thechapter} }
+        \par\nobreak
+        \vspace*{10\p@}%
+        \interlinepenalty\@M
+        \hrule
+        \vspace*{10\p@}%
+        \Huge \bfseries #1\par\nobreak
+        \par
+        \vspace*{10\p@}%
+    \vskip 100\p@
+  }}
+%
+% Installation de shorttoc & glossaries via ftp://ftp.inria.fr/pub/TeX/CTAN/macros/latex/contrib/
+% Télécharger les zip est les mettres dans /opt/local/share/texmf-dist/tex/latex/
+
+% Pour shorttoc:
+%  - Run latex on shorttoc.ins to get shorttoc.sty. $texhash shorttoc.ins/opt/local/share/texmf-dist/tex/latex/shorttoc/shorttoc.ins
+%  - Run latex three times (yes, 3) on shorttoc.dtx to get the documentation.
+\definecolor{lightgray}{rgb}{.95,.95,.95}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\ttfamily,
+  stringstyle=\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+% bug avec la gestion des accents dans lst
+\lstset{
+  language=JavaScript,
+  inputencoding=utf8, % ça c'est pour être tranquille
+  extendedchars=true, % avec les commentaires :)
+  basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\small,      % the size of the fonts that are used for the line-numbers
+  numberfirstline=true,
+  stepnumber=7,                   % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\ttfamily,
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{lightgray},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,        % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  escapeinside={\%*}{*)},         % if you want to add a comment within your code
+  morekeywords={*,...}
+}
+
+% Redéfinition de commandes
+\renewcommand\thesection{\arabic{section}}
+% Définition de commandes
+\newcommand{\JS}{\emph{\gls{JavaScript}}~}
+
+% Pour avoir les noms de chapitre en 1.1.3 etc...
+\renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+
+% Désactiver les alinéas automatiques
+\parindent=0cm
+
+% Elements pour la page de garde
+\title{}
+\author{Francois-Guillaume RIBREAU - Philippe Chauvelin}
+\date{\today}
+
+% Création du glossaire
+
+
+\makeglossaries
+\newglossaryentry{AMQP}{
+  name=AMQP,
+  text=AMQP*,
+  description={Advanced Message Queuing Protocol (AMQP) est un standard ouvert de passage de message entre applications et organisations.}
+}
+
+%2.  Définitions et abréviations
+%
+%0-day : Programme qui exploite une faille encore inconnue, qui n'a pas encore été publiée.
+%Ajax : Asynchronous JavaScript and XML, c’est un terme qui évoque l'utilisation conjointe d'un ensemble de technologies libres couramment utilisées sur le Web (%JS, PHP, XML, CSS, etc.)
+%Audit : Technique permettant l’analyse des vulnérabilités d’un programme.
+%BoF : Abréviation de Buffer Overflow.
+%BSI : Abréviation de Blind SQL Injections.
+%Buffer : Un buffer est une zone mémoire temporaire utilisée par une application.
+%Bugtraq : Sites WEB chargés de répertorier, l'ensemble des failles de sécurité connues.
+%Cookie : Fichier texte stocké sur la machine cliente et utilisé pour l’authentification sur un site WEB (permet d’être reconnu par celui-ci la deuxième fois qu’on %y accède).
+%CERT : Computer Emergency Response Team, ce sont des centres d'alerte et de réaction aux attaques informatiques, destinés aux entreprises et aux administrations, %mais dont les informations sont généralement accessibles à tous.
+%Javascript : Langage permettant de rendre interactif un site WEB.
+%LamerZ et Script kiddies : Pseudo-pirate utilisant les exploits des autres pour s’infiltrer dans un système. Ils sont très mal vus dans le monde du piratage %informatique.
+%materiel.net : Site WEB marchand spécialisé dans la vente de matériel informatique
+%NOP : (No OPeration) instruction de base des processeurs x86, elle ne fait rien si ce n'est incrémenter le pointeur d'instruction
+%Vers : logiciel malveillant qui se reproduit sur plusieurs ordinateurs en utilisant un réseau informatique comme Internet.
+%XSS : Abréviation de Cross Site Scripting. Pour ne pas confondre avec le langage CSS on a remplacé le C par X (X symbolise la croix (cross en anglais)).
+
+
+
+
+\setcounter{tocdepth}{4}
+
+% Fin du glossaire
+
+% Début du document
+\begin{document}
+  \begin{onehalfspace}
+    % Page de garde
+    \begin{titlepage}
+      \begin{center}
+        Francois-Guillaume RIBREAU - Philippe Chauvelin\\
+        CSII 3\ieme année\\
+      \end{center}
+      \hrulefill
+      \vspace{7cm}
+      \begin{center}
+        \LARGE \textbf{Les différents vecteurs d'attaque et de protection des applications web}\\
+        \vspace{3cm}
+        \normalsize
+        \vspace{5cm}
+      \end{center}
+    \end{titlepage}
+    \clearpage
+
+\thispagestyle{empty}
+\setcounter{page}{0}
+\clearpage
+
+% Sommaire
+\shorttableofcontents{Sommaire}{0}
+\setcounter{page}{1}
+\thispagestyle{empty}
+\clearpage
+
+\chapter*{Introduction} % (fold)
+\addcontentsline{toc}{chapter}{Introduction}
+
+
+% Nous allons aborder dans ce rapport les différents vecteurs d'attaque et de protection des applications web.
+
+
+
+L’expansion de l’informatique conduit de plus en plus de gens à développer leurs propres programmes, que ça soit pour une entreprise ou pour une utilisation personnelle (ex : site web). Cette expansion est aussi une porte ouverte au piratage, de plus en plus courant en raison du nombre de développeurs qui augmente chaque année. Les Exploits, faisant partie de nos jours des logiciels malveillants les plus utilisés par les pirates, sont de plus en plus virulents.
+Ce thème est très intéressant car il nous permettra, en tant que développeur, de comprendre les failles que l’on peut générer en programmant nos logiciels et comment y remédier. La sécurité logicielle étant une compétence de choix au vue des constatations dites précédemment. Il nous amènera également à nous poser la problématique suivante :
+
+Comment protéger nos programmes des Exploits ?
+Dans une première partie, nous verrons ce que sont réellement les exploits, leurs objectifs, leur fonctionnement général. Comme pour les virus (Worm, chevaux de Troie etc.) il existe plusieurs types d’exploits. Par conséquent, nous aborderons les différences entre chacun, ainsi que leurs caractéristiques, de plus il sera expliqué pour chacun d’entre eux, les causes, conséquences et contexte dans lequel ils se situent.
+Nous tenterons dans une seconde partie d’expérimenter le concept de « faille logicielle » en créant un programme simple et en y insérant l’une des failles qui sera détaillée dans la partie précédente. Nous pourrons donc par la suite tester un Exploit spécifique à la faille choisie.
+Un développeur spécialisé dans la sécurité logicielle doit savoir exploiter les failles visibles d’un programme afin de pouvoir y remédier. Nous expliquerons donc dans cette troisième partie les différentes étapes de construction d’un Exploit  qui nous permettront par la suite de créer le nôtre puis ensuite de le tester.
+Nous verrons dans une dernière partie des méthodes appropriées pour protéger son programme contre les Exploits. Nous expliquerons dans un premier temps les erreurs à ne pas commettre dans un code source, afin d’éviter l’ouverture d’une faille. Puis nous présenterons les différents logiciels permettant de lutter contre le piratage.
+La résultante de cette dernière partie nous permettra de conclure quant aux différentes solutions que le développeur peut mettre en place dans son code afin d’éviter l’ouverture d’une faille de sécurité.
+4.  Présentation
+4.1 Définition
+
+Un Exploit est un programme informatique mettant en œuvre l’exploitation  d'une vulnérabilité liée à un logiciel. Chaque exploit est spécifique à une version d'une application car il permet d'en exploiter les failles. Ils sont utilisés la plupart du temps pour les raisons suivantes :
+• Augmentation des privilèges : les Exploits les plus redoutables permettent de prendre le contrôle sur les programmes exécutés avec les privilèges d'administrateur (root sous les systèmes de type UNIX) ;
+• Provocation d'une erreur système : certains Exploits ont pour objectif la saturation d'un programme informatique afin de le faire « planter ».
+Lorsqu’une faille est détectée, le pirate peut l’exploiter en injectant dans des zones non contrôlées, du code arbitraire. Cependant cela nécessite un minimum de connaissances du système cible.
+
+lister plein de type d'attaque et se resteindre à l'injection sql (ou xss, csrf)
+
+30, 40 pages
+
+- Intro (synthèse du mémoire)
+- Theorie (étude biblio)
+  - La recherche de faille
+  - XSS réfléchi
+  - XSS stocké
+- Solution
+  - Protéger les ajouts dans sa BDD
+  - Protéger les informations utilisateurs dispo dans les cookies
+  - Les fonctionnalités contre XSS suivant les languages
+    - PHP
+    - Coldfusion
+    - CGI
+    - PHP Symfony
+    - ...
+- Pratique
+  - Le cas MySpace
+    -
+  - Le cas Twitter
+    -
+- Conclusion
+
+\chapter{Théorie} % (fold)
+\label{cha:th_orie}
+
+Comment se déroule l'attaque
+-
+-
+-
+-
+
+% chapter théorie (end)
+\clearpage
+
+\chapter{Technique} % (fold)
+\label{cha:technique}
+
+Comment s'en protéger (technique)
+
+\section{Le spoofing de variable} % (fold)
+\label{sec:le_spoofing_de_variable}
+
+% section le_spoofing_de_variable (end)
+
+
+% chapter technique (end)
+\clearpage
+
+\chapter{Pratique} % (fold)
+\label{cha:pratique}
+
+Exemple d'entreprise, startup qui ont eu des attaques XXX ou YYYY et comment elles s'en sont prémunies.
+
+Exemple Brin.gr avec l'attaque SSH. (changer le port 22).
+
+% chapter pratique (end)
+\clearpage
+
+\chapter{Discussions} % (fold)
+\label{cha:discussions}
+
+% chapter discussions (end)
+\clearpage
+
+\chapter{Conclusion} % (fold)
+\label{cha:conclusion}
+
+% chapter conclusion (end)
+\clearpage
+
+
+\end{onehalfspace}
+\end{document}

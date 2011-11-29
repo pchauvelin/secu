@@ -1,0 +1,162 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{layout}
+\usepackage[top=2cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage{setspace}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{shorttoc}
+\usepackage{glossaries}
+\usepackage{xcolor}
+\usepackage{url}
+%\usepackage{biblatex} 
+
+% Têtes de chapitre
+\include{chapterStyle}
+
+% Verbatim langage
+\lstset{
+	language=Java,
+	basicstyle=\footnotesize,
+	numbers=left,
+	numberstyle=\normalsize,
+	numbersep=7pt,
+}
+
+% Redéfinition de commandes
+\renewcommand\thesection{\arabic{section}}
+% \renewcommand\thechapter{\Roman{chapter}}
+% Définition de commandes
+
+% Désactiver les alinéas automatiques
+%\parindent=0cm
+
+% Elements pour la page de garde
+\title{Titre}
+\author{Fabien AMIAUD}
+\date{\today}
+
+% Création du glossaire
+
+%\makeglossaries
+%\newglossaryentry{fw}{
+%	name={framework*},
+%	description={C'est un espace de travail modulaire, constitué d'un ensemble de bibliothèques, d'outils et de conventions permettant le développement rapide d'applications.}
+%}
+%\newglossaryentry{serveur}{
+%	name={serveur*},
+%	description={Ordinateur dédié à l'administration, dans le cas d'un serveur internet, cet ordinateur permet de diffuser un site sur le réseau Internet.}
+%}
+
+% Début du document	
+\begin{document}
+	\begin{onehalfspace}
+		% Page de garde 
+		\begin{titlepage}
+			\begin{center}
+				Fabien AMIAUD\\
+				CSII 3\ieme année\\
+			\end{center}
+			\hrulefill
+			\vspace{7cm}
+			\begin{center} 
+				\LARGE \textbf{Titre}\\
+				\vspace{8cm}
+				\begin{tabular}{cp{4cm}c}
+					\includegraphics[height=75px]{images/logo_epsi.jpg}\\
+					E.P.S.I - NANTES\\
+					114 rue des Hauts Pavés\\
+					BP 41903\\
+					44019 NANTES CEDEX 01\\
+				\end{tabular}
+			\end{center}
+		\end{titlepage}
+		\newpage
+		
+		% Page vierge
+		\newpage
+		\null
+		
+		% Met le compteur de numérotation à zéro
+		\thispagestyle{empty}
+		\setcounter{page}{0}
+		\newpage
+		
+		% Sommaire
+		\shorttableofcontents{Sommaire}{0}
+		\setcounter{page}{1}
+		\thispagestyle{empty}
+		\newpage
+		
+		% Introduction
+		\chapter*{Introduction} % (fold)
+		% Ajout de Introduction dans le sommaire mais sans numéro
+		\addcontentsline{toc}{chapter}{Introduction}
+			Contenu Introduction\\			
+			\newline			
+			
+			
+		% chapter Introduction (end)
+		\newpage
+		
+		% Chapitre 1
+		\chapter{Chapitre 1} % (fold)
+			Contenu Chapitre 1\\			
+			\newline			
+			
+		% chapter Chapitre 1 (end)			
+		\newpage
+		
+		% Chapitre 2
+		\chapter{Chapitre 2} % (fold)
+			Contenu Chapitre 2\\			
+			\newline			
+			
+		% chapter Chapitre 2 (end)			
+		\newpage
+		
+		% Chapitre 3
+		\chapter{Chapitre 3} % (fold)
+			Contenu Chapitre 3\\			
+			\newline			
+			
+		% chapter Chapitre 3 (end)			
+		\newpage
+		
+		% Conclusion
+		\chapter*{Conclusion} % (fold)
+		% Ajout de Conclusion dans le sommaire mais sans numéro
+		\addcontentsline{toc}{chapter}{Conclusion}
+			Contenu Conclusion\\
+			\newline
+			
+		% chapter Conclusion (end)
+		\newpage
+		
+%		% Glossaire
+%		\renewcommand\glossaryname{Glossaire}
+%		\addcontentsline{toc}{chapter}{Glossaire}
+%		\printglossaries
+%		
+%		% Bibliographie
+%		\addcontentsline{toc}{chapter}{Bibliographie}
+%		\bibliographystyle{plain} % Le style est mis entre crochets. 
+%		\bibliography{bibli} % mon fichier de base de données s'appelle bibli.bib
+%		
+%		% Liste des figures
+%		\addcontentsline{toc}{chapter}{Liste des figures}
+%		\listoffigures
+%
+%		% Table des matières
+%		\addcontentsline{toc}{chapter}{Tables des matières}
+%		\tableofcontents
+%		\newpage
+		
+	\end{onehalfspace}
+\end{document}

@@ -1,0 +1,109 @@
+\usepackage{xcolor}
+%\usepackage{biblatex} 
+
+% Tête de chapitre
+\makeatletter
+\newlength{\chapter@number@width}
+\def\@makechapterhead#1{%
+  {\normalfont
+  \setlength{\parindent}{0pt}%
+  \vspace*{10pt}%
+  \settowidth{\chapter@number@width}{%
+    \hbox{\color{white}\LARGE\bfseries
+          \hspace{\dimexpr 1mm+3pt}%
+          \thechapter
+          \hspace{\dimexpr 1mm+3pt}%
+    }}
+  \hbox{%
+    \vtop{%
+      \hsize=\dimexpr\chapter@number@width+\tabcolsep+2\fboxrule+\tabcolsep
+      \begin{tabular}[t]{@{}c}
+        \scshape\strut\makebox[0pt]{\hspace{0pt plus 1 fill minus 1 fill}\@chapapp\hspace{0pt plus 1 fill minus 1 fill}} \\
+        \fboxsep=0pt
+        \colorbox{black}{\vbox{%
+           \hbox{\vbox to \dimexpr 1mm+3pt{}}
+           \hbox{\color{white}\LARGE\bfseries
+                 \hspace{\dimexpr 1mm+3pt}%
+                 \thechapter
+                 \hspace{\dimexpr 1mm+3pt}%
+                }
+           \hrule height 0.4pt depth 0pt width 0pt
+           \hbox{\vbox to 6pt{}}
+           \hbox{\parbox{0pt}{\Huge\bfseries\vphantom{E}}}
+           }}%
+      \end{tabular}%
+      }%
+    \vtop{%
+      \advance\hsize by -\dimexpr\chapter@number@width+2\fboxrule+\tabcolsep
+      \hspace*{-0.5cm}\begin{tabular}[t]{c}
+        \scshape\strut\vphantom{\@chapapp} \\
+        \fboxsep=0pt
+        \colorbox{white}{\vbox{%
+           \hbox{\vbox to \dimexpr 1mm+3pt{}}
+           \hbox{\LARGE\bfseries
+                 \hspace{\dimexpr 1mm+3pt}%
+                 \phantom{\thechapter}
+                 \hspace{\dimexpr 1mm+3pt}%
+                }
+           \hrule height 0.4pt depth 0pt width \hsize
+           \hbox{\vbox to 6pt{}}
+           \hbox{\hspace*{20pt}\parbox{\dimexpr\textwidth-2mm-6pt-\chapter@number@width-\tabcolsep-2\fboxrule-20pt}{\Huge\bfseries #1}}
+           }}%
+      \end{tabular}%
+      }%
+    }%
+  \vspace{50pt}%
+  }
+}
+\def\@makeschapterhead#1{%
+  {\normalfont
+  \setlength{\parindent}{0pt}%
+  \vspace*{10pt}%
+  \settowidth{\chapter@number@width}{%
+    \hbox{\color{white}\LARGE\bfseries
+          \hspace{\dimexpr 1mm+3pt}%
+          \thechapter
+          \hspace{\dimexpr 1mm+3pt}%
+    }}
+  \hbox{%
+    \vtop{%
+      \hsize=\dimexpr\chapter@number@width+\tabcolsep+2\fboxrule+\tabcolsep
+      \begin{tabular}[t]{@{}c}
+        \scshape\strut\makebox[0pt]{\hspace{0pt plus 1 fill minus 1 fill}\phantom{\@chapapp}\hspace{0pt plus 1 fill minus 1 fill}} \\
+        \fboxsep=0pt
+        \colorbox{black}{\vbox{%
+           \hbox{\vbox to \dimexpr 1mm+3pt{}}
+           \hbox{\color{white}\LARGE\bfseries
+                 \hspace{\dimexpr 1mm+3pt}%
+                 \phantom{\thechapter}%
+                 \hspace{\dimexpr 1mm+3pt}%
+                }
+           \hrule height 0.4pt depth 0pt width 0pt
+           \hbox{\vbox to 6pt{}}
+           \hbox{\parbox{0pt}{\Huge\bfseries\vphantom{E}}}
+           }}%
+      \end{tabular}%
+      }%
+    \vtop{%
+      \advance\hsize by -\dimexpr\chapter@number@width+2\fboxrule+\tabcolsep
+      \hspace*{-0.5cm}\begin{tabular}[t]{c}
+        \scshape\strut\vphantom{\@chapapp} \\
+        \fboxsep=0pt
+        \colorbox{white}{\vbox{%
+           \hbox{\vbox to \dimexpr 1mm+3pt{}}
+           \hbox{\LARGE\bfseries
+                 \hspace{\dimexpr 1mm+3pt}%
+                 \phantom{\thechapter}
+                 \hspace{\dimexpr 1mm+3pt}%
+                }
+           \hrule height 0.4pt depth 0pt width \hsize
+           \hbox{\vbox to 6pt{}}
+           \hbox{\hspace*{20pt}\parbox{\dimexpr\textwidth-2mm-6pt-\chapter@number@width-\tabcolsep-2\fboxrule-20pt}{\Huge\bfseries #1}}
+           }}%
+      \end{tabular}%
+      }%
+    }%
+  \vspace{50pt}%
+  }
+}
+\makeatother
