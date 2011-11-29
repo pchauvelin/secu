@@ -1,0 +1,14 @@
+Et si en deux jours, plus de 24 millions de données bancaires de vos clients étaient compromisent. C'est ce qui est arrivé en Mai 2011 à Sony , multinationnale Japonaise intervenant dans le domaine du multimédia et de la telephonie. Cette société faisant partie des leaders du multimedia 
+
+Cette société faisant environ 69 milliards d'euros de chiffre d'affaires par an, s'est vu piraté sa plateforme de jeux PNS (PlayStation Station).   
+--
+L’expansion de l’informatique conduit de plus en plus de gens à développer leurs propres programmes, que ça soit pour une entreprise ou pour une utilisation personnelle (ex : site web). Cette expansion est aussi une porte ouverte au piratage, de plus en plus courant en raison du nombre de développeurs qui augmente chaque année. Les Exploits, faisant partie de nos jours des logiciels malveillants les plus utilisés par les pirates, sont de plus en plus virulents.
+
+Ce thème est très intéressant car il nous permettra, en tant que développeur, de comprendre les failles que l’on peut générer en programmant nos logiciels et comment y remédier. La sécurité logicielle étant une compétence de choix au vue des constatations dites précédemment. Il nous amènera donc à aborder les différents vecteurs d'attaque et de protection des applications web.
+
+Dans une première partie, nous verrons ce que sont réellement les exploits, leurs objectifs, leur fonctionnement général. Comme pour les virus (Worm, chevaux de Troie etc.) il existe plusieurs types d’exploits. Par conséquent, nous aborderons les différences entre chacun, ainsi que leurs caractéristiques, de plus il sera expliqué pour chacun d’entre eux, les causes, conséquences et contexte dans lequel ils se situent.
+Nous tenterons dans une seconde partie d’expérimenter le concept de « faille logicielle » en créant un programme simple et en y insérant l’une des failles qui sera détaillée dans la partie précédente. Nous pourrons donc par la suite tester un Exploit spécifique à la faille choisie.
+
+Un développeur spécialisé dans la sécurité logicielle doit savoir exploiter les failles visibles d’un programme afin de pouvoir y remédier. Nous expliquerons donc dans cette troisième partie les différentes étapes de construction d’un Exploit  qui nous permettront par la suite de créer le nôtre puis ensuite de le tester.
+Nous verrons dans une dernière partie des méthodes appropriées pour protéger son programme contre les Exploits. Nous expliquerons dans un premier temps les erreurs à ne pas commettre dans un code source, afin d’éviter l’ouverture d’une faille. Puis nous présenterons les différents logiciels permettant de lutter contre le piratage.
+La résultante de cette dernière partie nous permettra de conclure quant aux différentes solutions que le développeur peut mettre en place dans son code afin d’éviter l’ouverture d’une faille de sécurité.
