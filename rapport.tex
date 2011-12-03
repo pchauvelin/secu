@@ -82,7 +82,7 @@
 	% Page de garde 
 	\begin{titlepage}
 		\begin{center}
-			Philippe CHAUVELIN - François-Guillaume Ribreau\\
+			Philippe CHAUVELIN - François-Guillaume RIBREAU\\
 			CSII 3\ieme~année\\
 		\end{center}
 		\hrulefill
@@ -124,16 +124,22 @@
 		
 		\addcontentsline{toc}{chapter}{Introduction}
 		
+« Au printemps dernier, les dirigeants de Sony présentent leurs excuses à 75 millions d'utilisateurs pour ne pas avoir suffisamment protégé leurs comptes. ».\\
 
-L’expansion de l’informatique conduit de plus en plus de gens à développer leurs propres programmes, que ça soit pour une entreprise ou pour une utilisation personnelle (ex : site web). Cette expansion est aussi une porte ouverte au piratage, de plus en plus courant en raison du nombre de développeurs qui augmente chaque année. Les Exploits, faisant partie de nos jours des logiciels malveillants les plus utilisés par les pirates, sont de plus en plus virulents.
-Ce thème est très intéressant car il nous permettra, en tant que développeur, de comprendre les failles que l’on peut générer en programmant nos logiciels et comment y remédier. La sécurité logicielle étant une compétence de choix au vue des constatations dites précédemment. Il nous amènera également à nous poser la problématique suivante :
+Sony est une multinationale japonaise spécialisée dans le domaine du multimédia. Au printemps dernier, celle-ci à mis plus d'une semaine avant de remarquer qu'elle se faisait voler les données personnelles de près de 75 millions de joueurs abonnés à son réseau Playstation Network. Une erreur qui lui coutera environ 171 millions de dollars. Symantec, créateur de la suite de sécurité Norton, estime les pertes infligées par la cybercriminalité à près de 271 milliards d'euros, et le nombre de cybercrime quotidien à un million.\\
 
-Comment protéger nos programmes des Exploits ?
-Dans une première partie, nous verrons ce que sont réellement les exploits, leurs objectifs, leur fonctionnement général. Comme pour les virus (Worm, chevaux de Troie etc.) il existe plusieurs types d’exploits. Par conséquent, nous aborderons les différences entre chacun, ainsi que leurs caractéristiques, de plus il sera expliqué pour chacun d’entre eux, les causes, conséquences et contexte dans lequel ils se situent.
-Nous tenterons dans une seconde partie d’expérimenter le concept de « faille logicielle » en créant un programme simple et en y insérant l’une des failles qui sera détaillée dans la partie précédente. Nous pourrons donc par la suite tester un Exploit spécifique à la faille choisie.
-Un développeur spécialisé dans la sécurité logicielle doit savoir exploiter les failles visibles d’un programme afin de pouvoir y remédier. Nous expliquerons donc dans cette troisième partie les différentes étapes de construction d’un Exploit  qui nous permettront par la suite de créer le nôtre puis ensuite de le tester.
-Nous verrons dans une dernière partie des méthodes appropriées pour protéger son programme contre les Exploits. Nous expliquerons dans un premier temps les erreurs à ne pas commettre dans un code source, afin d’éviter l’ouverture d’une faille. Puis nous présenterons les différents logiciels permettant de lutter contre le piratage.
-La résultante de cette dernière partie nous permettra de conclure quant aux différentes solutions que le développeur peut mettre en place dans son code afin d’éviter l’ouverture d’une faille de sécurité.
+L’expansion de l’informatique conduit de plus en plus de personnes à développer leurs propres programmes, que ça soit pour une entreprise ou pour une utilisation personnelle. Cette expansion est une porte ouverte au piratage, de plus en plus courant en raison du nombre de développeurs qui augmente chaque année. Les Exploits, faisant partie de nos jours des logiciels malveillants les plus utilisés par les pirates, sont de plus en plus virulents.
+Ce thème est très intéressant car il nous permettra de nous pencher sur l'une des failles les plus courantes du moment. \textbf{Nous allons donc dans ce rapport aborder les différents vecteurs d'attaque et de protection des applications Web relatives aux failles XSS}.\\
+
+Une faille XSS est un Exploit visant à injecter du code (généralement Javascript) malveillant dans une page d'un site qui sera exécuté par le navigateur de la victime. Elle à pour but la récupération d'informations personnelles sur cette dernière afin de permettre l'usurpation d'identité (phishing) ou alors la propagation d'un virus comme par exemple le virus Samy qui a  contaminé plus de un million de profils MySpace. \\
+
+Nous aborderons dans une première partie le fonctionnement détaillé d'une faille XSS , et plus particulièrement la phase de détection de celle-ci. La résultante de cette dernière nous amènera à conclure l'existence de deux sous-catégories de cette famille de faille. La première sous-catégorie et la moins dangereuse est le XSS réfléchi. Elle permet, via l'injection de code Javascript dans une url menant à un site non protégé, de contrôler le contenu de celui-ci. Elle est considérée comme moins par la communauté des développeurs étant donné qu'il est presque nécessaire d'utiliser l'ingénierie sociale pour assurer son fonctionnement. D'un autre coté, on distinguera le XSS stocké, ou permanent. Cette faille est à l'origine des plus grandes attaques XSS de l'histoire du Web (MySpace, Twitter, etc.). Contrairement au XSS réfléchi, le code injecter peut être stocké sur le serveur et par conséquent toucher un grand nombre de personnes (Exemple : injection de code malveillant dans un forum non protégé). La compréhension de ces différents éléments nous permettra d'aborder les solutions envisageables afin de protéger ses applications Web telles que la protection des ajouts en base de données, la protection des cookies disposant d'informations sur l'utilisateur ou encore les différentes solutions proposés par les langages et Framework.  \\
+
+« Les entreprises investissent d'avantage dans leurs machines à café que dans la sécurité informatique ».\\
+
+Yahoo, le 12 février 2006, contracte un ver XSS nommé Yammaner, basé sur  Samy de MySpace et ayant pour but de voler la liste de contact de la victime. Pour cela cette dernière recevait un email qui une fois ouvert s’envoyait lui-même à tous les contacts de la victime.
+
+
 		
 			
 		% chapter Introduction (end)
@@ -170,7 +176,7 @@ Si le pirate arrive à identifier un site web vulnérable, il a donc la possibil
 		
 
 		\newpage
-	\section{Solutions envisageable}
+	\section{Solutions envisageables}
 		Contenu Section 
 		
 
