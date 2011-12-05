@@ -121,27 +121,27 @@
 	\chapter*{Introduction} % (fold)
 		% Ajout de Introduction dans le sommaire mais sans numéro		
 		\setcounter{section}{1}
-		
+
 		\addcontentsline{toc}{chapter}{Introduction}
 		
-« Au printemps dernier, les dirigeants de Sony présentent leurs excuses à 75 millions d'utilisateurs pour ne pas avoir suffisamment protégé leurs comptes. ».\\
+« Au printemps dernier, les dirigeants de Sony présentaient leurs excuses à 75 millions d'utilisateurs pour ne pas avoir suffisamment protégé leurs comptes. ».\\
 
-Sony est une multinationale japonaise spécialisée dans le domaine du multimédia. Au printemps dernier, celle-ci à mis plus d'une semaine avant de remarquer qu'elle se faisait voler les données personnelles de près de 75 millions de joueurs abonnés à son réseau Playstation Network. Une erreur qui lui coutera environ 171 millions de dollars. Symantec, créateur de la suite de sécurité Norton, estime les pertes infligées par la cybercriminalité à près de 271 milliards d'euros, et le nombre de cybercrime quotidien à un million.\\
+Sony est une multinationale japonaise spécialisée dans le domaine du multimédia. Celle-ci à mis plus d'une semaine avant de remarquer qu'elle se faisait voler les données personnelles de près de 75 millions de joueurs abonnés à son réseau Playstation Network. Une erreur qui lui coutera environ 171 millions de dollars. Symantec, créateur de la suite de sécurité Norton, estime les pertes infligées par la cybercriminalité à près de 271 milliards d'euros, et le nombre de cybercrime quotidien à un million.\\
 
-L’expansion de l’informatique conduit de plus en plus de personnes à développer leurs propres programmes, que ça soit pour une entreprise ou pour une utilisation personnelle. Cette expansion est une porte ouverte au piratage, de plus en plus courant en raison du nombre de développeurs qui augmente chaque année. Les Exploits, faisant partie de nos jours des logiciels malveillants les plus utilisés par les pirates, sont de plus en plus virulents.
+L’expansion de l’informatique conduit de plus en plus de personnes à développer leurs propres programmes, que cela soit en entreprise ou pour une utilisation personnelle. Cette expansion est une porte ouverte au piratage, de plus en plus courante en raison du nombre de développeurs qui augmente chaque année. Les exploits, faisant partie de nos jours des logiciels malveillants les plus utilisés par les pirates, sont de plus en plus virulents.
 Ce thème est très intéressant car il nous permettra de nous pencher sur l'une des failles les plus courantes du moment. \textbf{Nous allons donc dans ce rapport aborder les différents vecteurs d'attaque et de protection des applications Web relatives aux failles XSS}.\\
 
-Une faille XSS est un Exploit visant à injecter du code (généralement Javascript) malveillant dans une page d'un site qui sera exécuté par le navigateur de la victime. Elle à pour but la récupération d'informations personnelles sur cette dernière afin de permettre l'usurpation d'identité (phishing) ou alors la propagation d'un virus comme par exemple le virus Samy qui a  contaminé plus d'un million de profils MySpace. De part sa simplicité à être exécutée, une attaque XSS peut avoir de lourdes conséquences étant donné que n'importe qui ou presque peut la mettre en œuvre à la condition bien sur de pouvoir déceler la faille.\\
+Le Cross Site Scripting, ou XSS, est la faille la plus présente sur le web, et d'assez loin. Elle est désignée par quantité de noms, parmi lesquels "faille des livres d'or", tout simplement car ceux-ci ont permis une généralisation de celles-ci. La faille de type XSS se caractérise par une injection possible de code arbitraire dans une application web côté client. Autrement dit, une possibilité d'éxécution d'une variable mal contrôlée par le site. L'attaque par XSS à pour but la récupération d'informations personnelles sur cette dernière afin de permettre l'usurpation d'identité (phishing) ou alors la propagation d'un virus comme par exemple le virus Samy qui a contaminé plus de un million de profils MySpace. \\
 
-Nous aborderons dans une première partie le fonctionnement détaillé d'une faille XSS , et plus particulièrement la phase de détection de celle-ci. La résultante de cette dernière nous amènera à conclure l'existence de deux sous-catégories de cette famille de faille. La première sous-catégorie et la moins dangereuse est le XSS réfléchi. Elle permet, via l'injection de code Javascript dans une url menant à un site non protégé, de contrôler le contenu de celui-ci. Elle est considérée comme moins par la communauté des développeurs étant donné qu'il est presque nécessaire d'utiliser l'ingénierie sociale pour assurer son fonctionnement. D'un autre coté, on distinguera le XSS stocké, ou permanent. Cette faille est à l'origine des plus grandes attaques XSS de l'histoire du Web (MySpace, Twitter, etc.). Contrairement au XSS réfléchi, le code injecter peut être stocké sur le serveur et par conséquent toucher un grand nombre de personnes (Exemple : injection de code malveillant dans un forum non protégé). La compréhension de ces différents éléments nous permettra d'aborder les solutions envisageables afin de protéger ses applications Web telles que la protection des ajouts en base de données, la protection des cookies disposant d'informations sur l'utilisateur ou encore les différentes solutions proposés par les langages et Framework.  \\
+
+Nous aborderons dans une première partie le fonctionnement détaillé d'une faille XSS et plus particulièrement la phase de détection de celle-ci. Nous réaliserons qu'il existe deux sous-catégories d'attaque XSS. La première sous-catégorie, la moins dangereuse est le XSS réfléchi. Elle permet, via l'injection de code Javascript dans une url menant à un site non protégé, de contrôler le contenu de celui-ci. Elle est considérée comme moins dangereuse par la communauté des développeurs étant donné qu'il est presque nécessaire d'utiliser l'ingénierie sociale pour assurer son fonctionnement. D'un autre coté, on distinguera le XSS stocké, ou permanent, qui est à l'origine d'un certain nombre d'attaque de grand compte (MySpace, Twitter, etc.). Contrairement au XSS réfléchi, le code injecté peut être stocké sur le serveur et par conséquent toucher un grand nombre de personnes (Exemple : injection de code malveillant dans un forum non protégé). La compréhension de ces différents éléments nous permettra d'aborder les solutions envisageables afin de protéger ses applications Web tel que les protections à appliquer lors des insertions en base de données, la protection des cookies disposant d'informations sur l'utilisateur ou encore les différentes solutions proposées par les langages et frameworks.  \\
 
 « Les entreprises investissent d'avantage dans leurs machines à café que dans la sécurité informatique ».\\
 
-Yahoo, le 12 février 2006, contracte un ver XSS nommé Yammaner, basé sur  Samy de MySpace et ayant pour but de voler la liste de contact de la victime. Pour cela cette dernière recevait un email qui une fois ouvert s’envoyait lui-même à tous les contacts de la victime.
+Le premier ver XSS a été créé en 2005 sur le réseau social mondial MySpace. Sans gravité et nommé «Samy » il avait pour but d’ajouter à la liste d’amis de la victime un contact appelé Samy, pour ensuite se répliquer. Au final Samy a contaminé près de 1 000 000 de profils. Cependant, ce dernier n’a pas été le seul ver à se propager à si grande échelle, il y a eu également le ver « Yammaner » (crée en 2006). Celui-ci a contaminé un grand nombre de serveur web-mail, notamment Yahoo. S’appuyant sur le même principe que Samy, Yammaner avait pour but de voler la liste de contact de la victime. Pour cela cette dernière recevait un email qui une fois ouvert s’envoyait lui-même à tous les contacts de la victime.
 
+Nous verrons dans une seconde partie les différentes phases de l'attaque de MySpace. Cette attaque étant l'une des plus grande en terme d'utilisateurs touchés, il y sera abordé la manière dont la faille a été découverte, le procédé de fabrication du code source visant exploiter celle-ci, la méthode de propagation et pour finir la solution qui été trouvé pour contourner l'attaque.  
 
-		
-			
 		% chapter Introduction (end)
 		\newpage
 	
@@ -182,20 +182,30 @@ Si le pirate arrive à identifier un site web vulnérable, il a donc la possibil
 
 		\newpage
 	% Chapitre 2
-	\chapter{Approche pratique} % (fold)
-		
+	\chapter{Cas MySpace} % (fold)
+	En octobre 2005, un utilisateur du réseau social MySpace, désireux de voir son nombre d'amis augmenter, développe un programme permettant d'exploiter une faille de type XSS. Il appel celui-ci «Samy» (aussi connu sous le nom de «JS.Spacehero»)en faisant référence à son nom Samy Kamkar. 
+	
 		% Chapitre 2 (end)
-	\section{Cas MySpace}
-Le premier ver XSS a été créé en 2005 sur le réseau social mondial MySpace. Sans gravité et nommé «Samy » il avait pour but d’ajouter à la liste d’amis de la victime un contact appelé Samy, pour ensuite se répliquer. Au final Samy a contaminé près de 1 000 000 de profils. \\
-
-\includegraphics{images/versmyspace.jpg}\\
-
-Comment le pirate a-t-il découvert la faille ?
-Il a tout d’abord remarqué que l’insertion de code HTML au sein de son profil était possible. En théorie si l’injection de code HTML est possible, il est également possible d’injecter du code Javascript, c’est à ce niveau que le pirate s’est heurté à un problème. En effet le site Myspace dispose d’une forte restriction en ce qui concerne le terme « javascript » (Ex : <script language= ‘’text/javascript’’) par conséquent l’insertion de ce dernier semblait très délicate. Il a donc trouvé une solution pour contourner ce problème, qui consistait à séparer ce terme en deux parties par retour chariot, ce qui lui a permis ensuite d’exploiter cette faille au maximum.
+	\section{Découverte de la faille}
+	
+Le pirate a tout d’abord remarqué que l’insertion de code HTML au sein de son profil était possible. En théorie si l’injection de code HTML est possible, il est également possible d’injecter du code Javascript, c’est à ce niveau que le pirate s’est heurté à un problème. En effet le site Myspace dispose d’une forte restriction en ce qui concerne le terme « javascript » (Ex : <script language= ‘’text/javascript’’) par conséquent l’insertion de ce dernier semblait très délicate. Il a donc trouvé une solution pour contourner ce problème, qui consistait à séparer ce terme en deux parties par retour chariot, ce qui lui a permis ensuite d’exploiter cette faille au maximum.
 Ce code JS envoyait discrètement et à l’insu de la victime des requêtes POST et GET via AJAX, la seule condition était que la victime visite le profil de l’utilisateur Samy. Le plus compliqué dans la mise en place de cette faille était la génération de requête http automatique sans la moindre intervention. La victime ne se rendait pas compte que lors de sa visite du profil Samy le navigateur lançait des requêtes http, simplement parce que la validation se faisait automatiquement (très dur à réaliser en JS).
-Samy n’a pas été le seul ver à se propager à si grande échelle, il y a eu également le ver « Yammaner » (crée en 2006). Celui-ci a contaminé un grand nombre de serveur web-mail, notamment Yahoo. S’appuyant sur le même principe que Samy, Yammaner avait pour but de voler la liste de contact de la victime. Pour cela cette dernière recevait un email qui une fois ouvert s’envoyait lui-même à tous les contacts de la victime.
+
 		
 
+		\newpage
+		\section{Charge utile(Payload)}
+		
+		
+		\newpage
+		
+		\section{Propagation}
+		
+		\newpage
+	
+		
+		\section{Conclusion}
+		
 		\newpage
 	
 	% Conclusion

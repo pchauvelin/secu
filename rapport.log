@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.9.13)  3 DEC 2011 18:31
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.9.13)  5 DEC 2011 11:58
 entering extended mode
 **rapport.tex
 (C:\Users\Philippe\Dropbox\secu\rapport.tex
@@ -710,7 +710,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 115.
 
-(C:\Users\Philippe\Dropbox\secu\rapport.toc) [2
+(C:\Users\Philippe\Dropbox\secu\rapport.toc) [1
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 127--128
@@ -732,84 +732,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
-[3
+[2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
-[4]
+[3] [4]
 Chapitre 1.
 [5
 
 ] [6] [7] [8] [9]
 Chapitre 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--190
-
- []
-
-<images/versmyspace.jpg, id=39, 501.875pt x 362.35374pt>
-File: images/versmyspace.jpg Graphic file (type jpg)
-
-<use images/versmyspace.jpg>
-Package pdftex.def Info: images/versmyspace.jpg used on input line 191.
-(pdftex.def)             Requested size: 501.87376pt x 362.35286pt.
-
-Overfull \hbox (46.62965pt too wide) in paragraph at lines 191--192
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
-
- []
-
 [10
 
- <C:/Users/Philippe/Dropbox/secu/images/versmyspace.jpg>] [11] [12
+] [11] [12] [13] [14
 
-]
-(C:\Users\Philippe\Dropbox\secu\rapport.gls) [13]
-(C:\Users\Philippe\Dropbox\secu\rapport.bbl) [14
+] (C:\Users\Philippe\Dropbox\secu\rapport.gls) [15]
+(C:\Users\Philippe\Dropbox\secu\rapport.bbl) [16
 
 ]
 (C:\Users\Philippe\Dropbox\secu\rapport.lof)
 \tf@lof=\write5
- [15
+ [17
 
-] [16
+] [18
 
 ]
 (C:\Users\Philippe\Dropbox\secu\rapport.toc)
 \tf@toc=\write6
- [17
+ [19
 
 ]
 (C:\Users\Philippe\Dropbox\secu\rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 7048 strings out of 494045
- 97331 string characters out of 3148378
+ 7041 strings out of 494045
+ 97186 string characters out of 3148378
  188201 words of memory out of 3000000
- 10174 multiletter control sequences out of 15000+200000
+ 10168 multiletter control sequences out of 15000+200000
  57045 words of font info for 43 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 30i,13n,38p,1424b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 30i,13n,38p,1383b,357s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/font
 s/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmb
 x12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Prog
 ram Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
 lic/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb>
-Output written on rapport.pdf (18 pages, 264672 bytes).
+Output written on rapport.pdf (21 pages, 201769 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
+ 96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
