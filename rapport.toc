@@ -1,16 +1,19 @@
 \select@language {french}
 \contentsline {chapter}{Introduction}{2}
-\contentsline {chapter}{\numberline {1}Approche th\IeC {\'e}orique}{4}
-\contentsline {section}{\numberline {1.1}D\IeC {\'e}finition}{4}
-\contentsline {section}{\numberline {1.2}Recherche de faille}{5}
-\contentsline {section}{\numberline {1.3}XSS r\IeC {\'e}fl\IeC {\'e}chi}{6}
-\contentsline {section}{\numberline {1.4}XSS stock\IeC {\'e}}{7}
-\contentsline {section}{\numberline {1.5}Solutions envisageables}{8}
-\contentsline {chapter}{\numberline {2}Approche pratique}{9}
-\contentsline {section}{\numberline {2.1}Cas MySpace}{9}
-\contentsline {chapter}{Conclusion}{11}
-\contentsline {chapter}{Glossaire}{12}
-\contentsline {chapter}{Bibliographie}{13}
-\contentsline {chapter}{Liste des figures}{14}
-\contentsline {chapter}{Annexes}{15}
-\contentsline {chapter}{Tables des mati\IeC {\`e}res}{15}
+\contentsline {chapter}{\numberline {1}Approche th\IeC {\'e}orique}{5}
+\contentsline {section}{\numberline {1.1}D\IeC {\'e}finition}{5}
+\contentsline {section}{\numberline {1.2}Recherche de faille}{6}
+\contentsline {section}{\numberline {1.3}XSS r\IeC {\'e}fl\IeC {\'e}chi}{7}
+\contentsline {section}{\numberline {1.4}XSS stock\IeC {\'e}}{8}
+\contentsline {section}{\numberline {1.5}Solutions envisageables}{9}
+\contentsline {chapter}{\numberline {2}Cas MySpace}{10}
+\contentsline {section}{\numberline {2.1}D\IeC {\'e}couverte de la faille}{10}
+\contentsline {section}{\numberline {2.2}Charge utile(Payload)}{11}
+\contentsline {section}{\numberline {2.3}Propagation}{12}
+\contentsline {section}{\numberline {2.4}Conclusion}{13}
+\contentsline {chapter}{Conclusion}{14}
+\contentsline {chapter}{Glossaire}{15}
+\contentsline {chapter}{Bibliographie}{16}
+\contentsline {chapter}{Liste des figures}{17}
+\contentsline {chapter}{Annexes}{18}
+\contentsline {chapter}{Tables des mati\IeC {\`e}res}{18}

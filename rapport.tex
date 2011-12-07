@@ -130,15 +130,29 @@ Sony est une multinationale japonaise spécialisée dans le domaine du multiméd
 L’expansion de l’informatique conduit de plus en plus de personnes à développer leurs propres programmes, que cela soit en entreprise ou pour une utilisation personnelle. Cette expansion est une porte ouverte au piratage, de plus en plus courante en raison du nombre de développeurs qui augmente chaque année. Les exploits, faisant partie de nos jours des logiciels malveillants les plus utilisés par les pirates, sont de plus en plus virulents.
 Ce thème est très intéressant car il nous permettra de nous pencher sur l'une des failles les plus courantes du moment. \textbf{Nous allons donc dans ce rapport aborder les différents vecteurs d'attaque et de protection des applications Web relatives aux failles XSS}.\\
 
-Une faille XSS est un exploit visant à injecter du code (généralement Javascript) malveillant dans une page d'un site qui sera exécuté par le navigateur de la victime. L'attaque par XSS à pour but la récupération d'informations personnelles sur cette dernière afin de permettre l'usurpation d'identité (phishing) ou alors la propagation d'un virus comme par exemple le virus Samy qui a contaminé plus de un million de profils MySpace. \\
+Le Cross Site Scripting, ou XSS, est la faille la plus présente sur le web, et d'assez loin. Elle est désignée par quantité de noms, parmi lesquels "faille des livres d'or", tout simplement car ceux-ci ont permis une généralisation de celles-ci. La faille de type XSS se caractérise par une injection possible de code arbitraire dans une application web côté client. Autrement dit, une possibilité d'éxécution d'une variable mal contrôlée par le site. L'attaque par XSS à pour but la récupération d'informations personnelles sur cette dernière afin de permettre l'usurpation d'identité (phishing) ou alors la propagation d'un virus comme par exemple le virus Samy qui a contaminé plus de un million de profils MySpace. \\
 
-Nous aborderons dans une première partie le fonctionnement détaillé d'une faille XSS et plus particulièrement la phase de détection de celle-ci. Nous réaliserons qu'il existe deux sous-catégories d'attaque XSS. La première sous-catégorie, la moins dangereuse est le XSS réfléchi. Elle permet, via l'injection de code Javascript dans une url menant à un site non protégé, de contrôler le contenu de celui-ci. Elle est considérée comme moins par la communauté des développeurs étant donné qu'il est presque nécessaire d'utiliser l'ingénierie sociale pour assurer son fonctionnement. D'un autre coté, on distinguera le XSS stocké, ou permanent. Cette faille est à l'origine des plus grandes attaques XSS de l'histoire du Web (MySpace, Twitter, etc.). Contrairement au XSS réfléchi, le code injecté peut être stocké sur le serveur et par conséquent toucher un grand nombre de personnes (Exemple : injection de code malveillant dans un forum non protégé). La compréhension de ces différents éléments nous permettra d'aborder les solutions envisageables afin de protéger ses applications Web tel que les protections à appliquer lors des insertions en base de données, la protection des cookies disposant d'informations sur l'utilisateur ou encore les différentes solutions proposées par les langages et frameworks.  \\
+
+Nous aborderons dans une première partie le fonctionnement détaillé d'une faille XSS et plus particulièrement la phase de détection de celle-ci. Nous réaliserons qu'il existe deux sous-catégories d'attaque XSS. La première sous-catégorie, la moins dangereuse est le XSS réfléchi. Elle permet, via l'injection de code Javascript dans une url menant à un site non protégé, de contrôler le contenu de celui-ci. Elle est considérée comme moins dangereuse par la communauté des développeurs étant donné qu'il est presque nécessaire d'utiliser l'ingénierie sociale pour assurer son fonctionnement. D'un autre coté, on distinguera le XSS stocké, ou permanent, qui est à l'origine d'un certain nombre d'attaque de grand compte (MySpace, Twitter, etc.). Contrairement au XSS réfléchi, le code injecté peut être stocké sur le serveur et par conséquent toucher un grand nombre de personnes (Exemple : injection de code malveillant dans un forum non protégé). La compréhension de ces différents éléments nous permettra d'aborder les solutions envisageables afin de protéger ses applications Web tel que les protections à appliquer lors des insertions en base de données, la protection des cookies disposant d'informations sur l'utilisateur ou encore les différentes solutions proposées par les langages et frameworks.  \\
 
 « Les entreprises investissent d'avantage dans leurs machines à café que dans la sécurité informatique ».\\
 
-Yahoo, le 12 février 2006, contracte un ver XSS nommé Yammaner, basé sur  Samy de MySpace et ayant pour but de voler la liste de contact de la victime. Pour cela cette dernière recevait un email qui une fois ouvert s’envoyait lui-même à tous les contacts de la victime.
+Le premier ver XSS a été créé en 2005 sur le réseau social mondial MySpace. Sans gravité et nommé «Samy » il avait pour but d’ajouter à la liste d’amis de la victime un contact appelé Samy, pour ensuite se répliquer. Au final Samy a contaminé près de 1 000 000 de profils. Cependant, ce dernier n’a pas été le seul ver à se propager à si grande échelle, il y a eu également le ver « Yammaner » (crée en 2006). Celui-ci a contaminé un grand nombre de serveur web-mail, notamment Yahoo. S’appuyant sur le même principe que Samy, Yammaner avait pour but de voler la liste de contact de la victime. Pour cela cette dernière recevait un email qui une fois ouvert s’envoyait lui-même à tous les contacts de la victime.
 
+Nous verrons dans une seconde partie les différentes phases de l'attaque de MySpace. Cette attaque étant l'une des plus grande en terme d'utilisateurs touchés, il y sera abordé la manière dont la faille a été découverte, le procédé de fabrication du code source visant exploiter celle-ci, la méthode de propagation et pour finir la solution qui été trouvé pour contourner l'attaque.
 
+<<<<<<< HEAD
+=======
+    % chapter Introduction (end)
+    \newpage
+
+  % Chapitre 1
+  \chapter{Approche théorique} % (fold)
+  % Section 1
+  \section{Définition}
+Le XSS est une attaque visant les sites web qui affichent dynamiquement du contenu côté client et ce sans effectuer de contrôle des informations saisies par les utilisateurs. Les exploits Cross-Site Scripting consistent à forcer un site web à afficher du code HTML ou des scripts non autorisés et saisis par les utilisateurs. Le XSS est donc une attaque menée dans le but d'exécuter un code Javascript directement sur le poste de la victime. Cette technique est particulièrement utilisée par les pirates pour voler la session d'un utilisateur connecté.
+Si le pirate arrive à identifier un site web vulnérable, il a donc la possibilité d’insérer un script au sein d’une URL et de l’envoyé à une victime. Si cette dernière est connectée sur ce site web vulnérable, elle enverra immédiatement, et à son insu, son cookie de session au pirate. L'attaquant pourra alors utiliser ce cookie et voler la session de la victime pour mener des actions frauduleuses.
+>>>>>>> e0ff5bb7f004a59fca9e58f2cd9ed81b3719d8c3
 
 
     % chapter Introduction (end)
@@ -266,6 +280,19 @@ Samy n’a pas été le seul ver à se propager à si grande échelle, il y a eu
 
 
     \newpage
+    \section{Charge utile(Payload)}
+
+
+    \newpage
+
+    \section{Propagation}
+
+    \newpage
+
+
+    \section{Conclusion}
+
+    \newpage
 
   % Conclusion
   \chapter*{Conclusion} % (fold)
@@ -286,8 +313,7 @@ Samy n’a pas été le seul ver à se propager à si grande échelle, il y a eu
   \bibliographystyle{plain} % Le style est mis entre crochets.
   \nocite{*}
   \bibliography{bibli} % mon fichier de base de données s'appelle bibli.bib
-
-  http://www.webappsec.org/projects/articles/071105.shtml
+   http://www.webappsec.org/projects/articles/071105.shtml
 
   \newpage
 
