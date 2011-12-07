@@ -20,24 +20,24 @@
 
 % Verbatim langage
 %\lstset{
-%	language=Python,
-%	basicstyle=\footnotesize,
-%	basicstyle=\ttfamily\small,
-%	keywordstyle=\color{blue}\bfseries\emph,
-%	stringstyle=\color{black!60},
-%	columns=flexible,
-%	tabsize=4,
-%	extendedchars=true,
-%	showspaces=false,
-%	showstringspaces=false,
-%	breaklines=true,
-%	breakautoindent=true,
-%	captionpos=b,
-%	numbers=left,
-%	numberstyle=\footnotesize,
-%	stepnumber=1,
-%	numbersep=10pt,
-%	frame=single
+% language=Python,
+% basicstyle=\footnotesize,
+% basicstyle=\ttfamily\small,
+% keywordstyle=\color{blue}\bfseries\emph,
+% stringstyle=\color{black!60},
+% columns=flexible,
+% tabsize=4,
+% extendedchars=true,
+% showspaces=false,
+% showstringspaces=false,
+% breaklines=true,
+% breakautoindent=true,
+% captionpos=b,
+% numbers=left,
+% numberstyle=\footnotesize,
+% stepnumber=1,
+% numbersep=10pt,
+% frame=single
 %}
 
 
@@ -49,8 +49,7 @@
 % Définition de commandes
 %\newcommand{\EX}{\emph{Exemple}}
 
-%Mots sans césures
-%\hyphenation{Exemple} 
+%Mots sans césures \hyphenation{Exemple}
 
 % Désactiver les alinéas automatiques
 \parindent = 0pt
@@ -63,67 +62,67 @@
 % Création du glossaire
 \makeglossaries
 %\newglossaryentry{erp}{
-%	name={ERP },
-%	text={ERP*},
-%	description={\textbf{(Enterprise Resource Planning) :} Progiciel permettant de gérer l'ensemble des processus d'une entreprise en intégrant l'ensemble de 
-%	ses fonctions comme la gestion des ressources humaines, la gestion financière et comptable, l'aide a la décision, la vente, la distribution 
-%	l'approvisionnement, la production ou encore du e-commerce. Parfois appelé \textbf{PGI (Progiciel de Gestion Intégré)} avec la dénomination française}
+% name={ERP },
+% text={ERP*},
+% description={\textbf{(Enterprise Resource Planning) :} Progiciel permettant de gérer l'ensemble des processus d'une entreprise en intégrant l'ensemble de
+% ses fonctions comme la gestion des ressources humaines, la gestion financière et comptable, l'aide a la décision, la vente, la distribution
+% l'approvisionnement, la production ou encore du e-commerce. Parfois appelé \textbf{PGI (Progiciel de Gestion Intégré)} avec la dénomination française}
 %}
 %
 %\newglossaryentry{opensource}{
-%	name={OPEN SOURCE :},
-%	text={Open Source*},
-%	description={Logiciels dont la licence respecte les critères définis par l'association Open Source Initiative (OSI). Parmi ces critères, on retrouve 
-%	la possibilité de libre redistribution, d'accès au code source et de Travaux dérivés}
+% name={OPEN SOURCE :},
+% text={Open Source*},
+% description={Logiciels dont la licence respecte les critères définis par l'association Open Source Initiative (OSI). Parmi ces critères, on retrouve
+% la possibilité de libre redistribution, d'accès au code source et de Travaux dérivés}
 %}
 
-% Début du document	
+% Début du document
 \begin{document}
-	% Page de garde 
-	\begin{titlepage}
-		\begin{center}
-			Philippe CHAUVELIN - François-Guillaume RIBREAU\\
-			CSII 3\ieme~année\\
-		\end{center}
-		\hrulefill
-		\vspace{7cm}
-		\begin{center} 
-			\LARGE \textbf{Les attaques XSS}\\
-			\vspace{6cm}
-		
-			\begin{tabular}{cp{4cm}c}
-				\includegraphics[height=75px]{images/logo_epsi.jpg}\\
-				\textbf{E.P.S.I - NANTES}\\
-				114 rue des Hauts Pavés\\
-				BP 41903\\
-				44019 NANTES CEDEX 01\\
-			\end{tabular}
-		\end{center}
-	\end{titlepage}
-	\newpage
-	
-	% Page vierge
-	\newpage
-	\null
-	% Met le compteur de numérotation à zéro et n'affiche pas le numéro de page remerciement
-	\thispagestyle{empty}
-	\setcounter{page}{0}
-	\newpage
-	
-	
-	% Sommaire
-	\shorttableofcontents{Sommaire}{0}
-	\setcounter{page}{1}
-	\thispagestyle{empty}
-	\newpage
-	
-	% Introduction
-	\chapter*{Introduction} % (fold)
-		% Ajout de Introduction dans le sommaire mais sans numéro		
-		\setcounter{section}{1}
-		
-		\addcontentsline{toc}{chapter}{Introduction}
-		
+  % Page de garde
+  \begin{titlepage}
+    \begin{center}
+      Philippe CHAUVELIN - François-Guillaume RIBREAU\\
+      CSII 3\ieme~année\\
+    \end{center}
+    \hrulefill
+    \vspace{7cm}
+    \begin{center}
+      \LARGE \textbf{Les attaques XSS}\\
+      \vspace{6cm}
+
+      \begin{tabular}{cp{4cm}c}
+        \includegraphics[height=75px]{images/logo_epsi.jpg}\\
+        \textbf{E.P.S.I - NANTES}\\
+        114 rue des Hauts Pavés\\
+        BP 41903\\
+        44019 NANTES CEDEX 01\\
+      \end{tabular}
+    \end{center}
+  \end{titlepage}
+  \newpage
+
+  % Page vierge
+  \newpage
+  \null
+  % Met le compteur de numérotation à zéro et n'affiche pas le numéro de page remerciement
+  \thispagestyle{empty}
+  \setcounter{page}{0}
+  \newpage
+
+
+  % Sommaire
+  \shorttableofcontents{Sommaire}{0}
+  \setcounter{page}{1}
+  \thispagestyle{empty}
+  \newpage
+
+  % Introduction
+  \chapter*{Introduction} % (fold)
+    % Ajout de Introduction dans le sommaire mais sans numéro
+    \setcounter{section}{1}
+
+    \addcontentsline{toc}{chapter}{Introduction}
+
 « Au printemps dernier, les dirigeants de Sony présentaient leurs excuses à 75 millions d'utilisateurs pour ne pas avoir suffisamment protégé leurs comptes. ».\\
 
 Sony est une multinationale japonaise spécialisée dans le domaine du multimédia. Celle-ci à mis plus d'une semaine avant de remarquer qu'elle se faisait voler les données personnelles de près de 75 millions de joueurs abonnés à son réseau Playstation Network. Une erreur qui lui coutera environ 171 millions de dollars. Symantec, créateur de la suite de sécurité Norton, estime les pertes infligées par la cybercriminalité à près de 271 milliards d'euros, et le nombre de cybercrime quotidien à un million.\\
@@ -140,52 +139,122 @@ Nous aborderons dans une première partie le fonctionnement détaillé d'une fai
 Yahoo, le 12 février 2006, contracte un ver XSS nommé Yammaner, basé sur  Samy de MySpace et ayant pour but de voler la liste de contact de la victime. Pour cela cette dernière recevait un email qui une fois ouvert s’envoyait lui-même à tous les contacts de la victime.
 
 
-		
-			
-		% chapter Introduction (end)
-		\newpage
-	
-	% Chapitre 1
-	\chapter{Approche théorique} % (fold)
-	% Section 1	
-	\section{Définition}	
-Le XSS est une attaque visant les sites web qui affichent dynamiquement du contenu côté client et ce sans effectuer de contrôle des informations saisies par les utilisateurs. Les exploits Cross-Site Scripting consistent à forcer un site web à afficher du code HTML ou des scripts non autorisés et saisis par les utilisateurs. Le XSS est donc une attaque menée dans le but d'exécuter un code Javascript directement sur le poste de la victime. Cette technique est particulièrement utilisée par les pirates pour voler la session d'un utilisateur connecté.
-Si le pirate arrive à identifier un site web vulnérable, il a donc la possibilité d’insérer un script au sein d’une URL et de l’envoyé à une victime. Si cette dernière est connectée sur ce site web vulnérable, elle enverra immédiatement, et à son insu, son cookie de session au pirate. L'attaquant pourra alors utiliser ce cookie et voler la session de la victime pour mener des actions frauduleuses.
 
-		
 
-		\newpage
-	
+    % chapter Introduction (end)
+    \newpage
 
-	\section{Recherche de faille}
+  % Chapitre 1
+  \chapter{Approche théorique} % (fold)
+  % Section 1
+  \section{Définition}
 
-		
+  Le XSS est une attaque visant les sites web qui affichent dynamiquement du contenu côté client et ce sans effectuer de contrôle des informations saisies par les utilisateurs. Les exploits Cross-Site Scripting consistent à forcer un site web à afficher du code HTML ou des scripts non autorisés et saisis par les utilisateurs. Le XSS est donc une attaque menée dans le but d'exécuter un code Javascript directement sur le poste de la victime. Cette technique est particulièrement utilisée par les pirates pour voler la session d'un utilisateur connecté.
 
-		\newpage
+  Si le pirate arrive à identifier un site web vulnérable, il a donc la possibilité d’insérer un script au sein d’une URL et de l’envoyé à une victime. Si cette dernière est connectée sur ce site web vulnérable, elle enverra immédiatement, et à son insu, son cookie de session au pirate. L'attaquant pourra alors utiliser ce cookie et voler la session de la victime pour mener des actions frauduleuses.
 
-	
+    \newpage
 
-	\section{XSS réfléchi}
-		Contenu Section 
-		
 
-		\newpage
+  \section{Recherche de faille}
 
-	\section{XSS stocké}
-		Contenu Section 
-		
 
-		\newpage
-	\section{Solutions envisageables}
-		Contenu Section 
-		
 
-		\newpage
-	% Chapitre 2
-	\chapter{Approche pratique} % (fold)
-		
-		% Chapitre 2 (end)
-	\section{Cas MySpace}
+    \newpage
+
+Il n'y a pas de classification officielle établie entre les différents types d'attaque XSS. Une attaque XSS peut généralement être catégorisé en deux catégories: les non-persistante (ou réfléchi) et les persistantes (ou stockée). Il existe une troisième catégorie d'attaque XSS, beaucoup moins connue, appelée XSS basée sur le DOM.
+
+\section{XSS réfléchi}
+
+
+
+    \newpage
+
+\section{XSS stocké}
+    Contenu Section
+
+
+\section{Vulnérabilité basé sur le DOM}
+  \\subsection{Définition} % (fold)
+  \label{sub:d_finition}
+  Les attaques XSS basées sur le DOM (aussi appelé dans d'autres textes les \'XSS de type-0\') sont possibles grâce à la modification de l'environnement DOM dans le navigateur de la victime afin de faire exécuter d'une manière non-prévue le script côté client. La page elle même ne change pas mais le code côté client contenues dans la page s'exécutera différemment en raison des modifications malveillantes qui ont eu lieu dans l'environnement DOM.
+
+  En contraste avec d'autres attaques XSS (stockées ou réfléchie), où l'origine de l'attaque est placé dans la page de réponse (grâce à une faille côté serveur).
+
+  Pour qu'une attaque de type XSS based DOM puisse avoir lieu, le script client de la page cible doit utiliser des données provenant de \lstinline{document.location} ou \lstinline{document.URL} ou \lstinline{document.referrer} (ou n'importe quel autre objet que l'attaquant pourrait influencer) d'une manière non sécurisée.
+
+  Le type connu en tant que type 1, ou vulnérabilité réfléchie résulte de l'utilisation de données fournies par l'utilisateur dans un script quelconque, sans les modifier. Typiquement, une simulation en ligne ou une page de statistiques. Ainsi, si ces données ne sont pas modifiées, on peut ajouter du \"script dans le script\" qui sera lui-même éxécuté.
+
+  Ceci dit, en modifiant les données qui doivent être traitées, le résultat du XSS ne va modifier que la page que va afficher l'utilisateur. Cela peut paraître bénin, mais ça l'est beaucoup moins quand l'attaquant utilise le Social Engineering et diffuse des pages piégées de cette façon. Ce genre de vulnérabilités est souvent utilisé pour lancer des campagnes de spam afin de ternir l'image d'un site (redirections, modifications d'apparence) ou de voler des informations (phishing).
+  Le type 2, ou vulnérabilité persistente ou du second ordre, permet des exploitations plus en profondeur. C'est la faille des livres d'or, présente dans les forums, les formulaires d'inscription. La différence essentielle est que les données entrées sont stockées dans des bases de données et sont traitées quand un utilisateur les demande. Par conséquent, on peut affecter n'importe qui sollicitera un certain sujet dans un forum ou la liste des pseudos enregistrés, etc.. Cette faille peut permettre des éxécutions côté client ou côté serveur selon les cas et peut permettre tout type d'exploitation, de la récupération de cookies à l'éxécution de scripts malveillants. On a vu des XSS intégrés à des bases de données institutionnels rendant inaccessibles des dizaines de sites dépendants de ces contenus.
+  Enfin, le type 0, connu comme le DOM-based ou local cross scripting site est un problème directement sur le script côté client (en général, le javscript) de la page (variables passées en URL qui sont réutilisées dans le javascript, etc..). Cette vulnérabilité est soit exploitée à nouveau par Social Engineering, soit par liens interposés dans lesquels on injecte du code qui sera ensuite éxécuté côté client. Celui-ci est finalement très sensible au type I et est très répandu et facilement repérable, notamment par des scanners automatisés.
+
+  \subsection{example} % (fold)
+  \label{sub:example}
+  Il n'est pas rare de trouver une application HTML qui contient du code JavaScript qui \textit{parse} l'adresse URL (en accédant à \lstinlinedocument.location} ou \lstinline{document.URL}) et réalise des actions côté client en se basant dessus. L'exemple ci-dessous est un exemple d'un tel scénario.
+
+  Supposons que le code suivant soit utilisé pour créer un formulaire afin de laisser l'utilisateur choisir sa langue préférée. La langue par défaut est également fourni dans la chaîne de requête (paramètre \"default\").
+
+% #TODO à écrire au format code
+%  Choisissez votre langue:
+%
+% Select your language:
+%
+% <select><script>
+%
+% document.write("<OPTION value=1>"+document.location.href.substring(% document.location.href.indexOf("default=")+8)+"</OPTION>");
+%
+% document.write("<OPTION value=2>English</OPTION>");
+%
+% </script></select>
+%  ...
+
+  La page est chargée avec l'url suivante:
+
+  \lstinline{http://www.sitevulnerable.com/page.html?default=French}
+
+  Une attaque XSS basée sur le DOM sur cette page peut être accompli si la victime ouvre l'URL suivante:
+
+  \lstinline{http://www.sitevulnerable.com/page.html?default=<script>alert(document.cookie)</script>}
+
+  Lorsque la victime clique sur ce lien, le navigateur envoie une requête pour:
+
+  \lstinline{/page.html?default=<script>alert(document.cookie)</script>}
+
+  sur www.sitevulnerable.com. Le serveur répondra par la page contenant le code ci-dessus Javascript. Le navigateur créera un objet DOM dans la page (pour le select) en se basant sur le document.location qui sera la chaine de caractère:
+  \lstinline{http://www.sitevulnerable.com/page.html?default=<script>alert(document.cookie)</script>
+}
+
+  Le code original Javascript dans la page n'est pas prévu pour que le paramètre \"default\" contienne des balises HTML. De ce fait, dans notre cas, il va simplement écrire notre code HTML dans la page (le DOM) lors de son exécution. Le navigateur va alors afficher la page et exécuter le script de l'attaquant:
+
+  \lstinline{alert(document.cookie)}
+
+  Nottons que la réponse HTTP envoyée par le serveur ne contient pas la charge utile (payload) de l'attaquant. Cette charge utile se manifest d'elle-même lors de l'exécution des scripts côté client. Ce type d'attaque est repérable par exemple dans le cas où un script défectueux accède à la variable \lstinline{document.location} et suppose son contenu malveillant.
+
+  % subsection example (end)
+
+  % subsection d_finition (end)
+    \newpage
+
+  \section{Solutions envisageables}
+    Contenu Section
+
+    \subsection{XSS basé sur le DOM} % (fold)
+    \label{sub:xss_bas_sur_le_dom}
+    Comme nous l'avons dit précédement, lors d'une attaque XSS basée sur le DOM la charge utile n'était pas contenue dans la réponse HTTP du serveur mais à néanmoins été envoyée au serveur lors de la requête HTTP. On peut donc penser que cette attaque pourrait être détectée côté serveur. En réalité, il est possible d'éviter cette détection par le serveur et de passer par d'autres variables que \lstinline{document.location}.
+
+
+
+
+    % subsection xss_bas_sur_le_dom (end)
+
+
+    \newpage
+  % Chapitre 2
+  \chapter{Approche pratique} % (fold)
+
+    % Chapitre 2 (end)
+  \section{Cas MySpace}
 Le premier ver XSS a été créé en 2005 sur le réseau social mondial MySpace. Sans gravité et nommé «Samy » il avait pour but d’ajouter à la liste d’amis de la victime un contact appelé Samy, pour ensuite se répliquer. Au final Samy a contaminé près de 1 000 000 de profils. \\
 
 \includegraphics{images/versmyspace.jpg}\\
@@ -194,51 +263,54 @@ Comment le pirate a-t-il découvert la faille ?
 Il a tout d’abord remarqué que l’insertion de code HTML au sein de son profil était possible. En théorie si l’injection de code HTML est possible, il est également possible d’injecter du code Javascript, c’est à ce niveau que le pirate s’est heurté à un problème. En effet le site Myspace dispose d’une forte restriction en ce qui concerne le terme « javascript » (Ex : <script language= ‘’text/javascript’’) par conséquent l’insertion de ce dernier semblait très délicate. Il a donc trouvé une solution pour contourner ce problème, qui consistait à séparer ce terme en deux parties par retour chariot, ce qui lui a permis ensuite d’exploiter cette faille au maximum.
 Ce code JS envoyait discrètement et à l’insu de la victime des requêtes POST et GET via AJAX, la seule condition était que la victime visite le profil de l’utilisateur Samy. Le plus compliqué dans la mise en place de cette faille était la génération de requête http automatique sans la moindre intervention. La victime ne se rendait pas compte que lors de sa visite du profil Samy le navigateur lançait des requêtes http, simplement parce que la validation se faisait automatiquement (très dur à réaliser en JS).
 Samy n’a pas été le seul ver à se propager à si grande échelle, il y a eu également le ver « Yammaner » (crée en 2006). Celui-ci a contaminé un grand nombre de serveur web-mail, notamment Yahoo. S’appuyant sur le même principe que Samy, Yammaner avait pour but de voler la liste de contact de la victime. Pour cela cette dernière recevait un email qui une fois ouvert s’envoyait lui-même à tous les contacts de la victime.
-		
 
-		\newpage
-	
-	% Conclusion
-	\chapter*{Conclusion} % (fold)
-	\addcontentsline{toc}{chapter}{Conclusion}
-		Contenu Conclusion
 
-		% Conclusion (end)
-		\newpage
-	
-	% Glossaire
-	\renewcommand\glossaryname{Glossaire}
-	\addcontentsline{toc}{chapter}{Glossaire}
-	\printglossaries
-	\newpage
-	
-	% Bibliographie
-	\addcontentsline{toc}{chapter}{Bibliographie}
-	\bibliographystyle{plain} % Le style est mis entre crochets. 
-	\nocite{*}		
-	\bibliography{bibli} % mon fichier de base de données s'appelle bibli.bib
-	\newpage
-	
-	% Liste des figures
-	\addcontentsline{toc}{chapter}{Liste des figures}
-	\listoffigures
-	\newpage
-	
-	% Annexes	
-	\chapter*{Annexes} % (fold)
-	\addcontentsline{toc}{chapter}{Annexes}
-	
-%	\section*{Annexe 1 - Mindmap récapitulative des modules utiles en fonction des besoins}
-%	\addcontentsline{toc}{section}{Annexe 1 - Mindmap récapitulative des modules utiles en fonction des besoins}
-%		\begin{figure}[!b]
-%			\begin{center}		
-%				\includegraphics[width=15.5cm]{images/openerp_mindmap.jpg}
-%			\end{center}
-%		\end{figure}
-%	\newpage
-	
-	% Table des matières
-	\addcontentsline{toc}{chapter}{Tables des matières}
-	\tableofcontents
-	\newpage
+    \newpage
+
+  % Conclusion
+  \chapter*{Conclusion} % (fold)
+  \addcontentsline{toc}{chapter}{Conclusion}
+    Contenu Conclusion
+
+    % Conclusion (end)
+    \newpage
+
+  % Glossaire
+  \renewcommand\glossaryname{Glossaire}
+  \addcontentsline{toc}{chapter}{Glossaire}
+  \printglossaries
+  \newpage
+
+  % Bibliographie
+  \addcontentsline{toc}{chapter}{Bibliographie}
+  \bibliographystyle{plain} % Le style est mis entre crochets.
+  \nocite{*}
+  \bibliography{bibli} % mon fichier de base de données s'appelle bibli.bib
+
+  http://www.webappsec.org/projects/articles/071105.shtml
+
+  \newpage
+
+  % Liste des figures
+  \addcontentsline{toc}{chapter}{Liste des figures}
+  \listoffigures
+  \newpage
+
+  % Annexes
+  \chapter*{Annexes} % (fold)
+  \addcontentsline{toc}{chapter}{Annexes}
+
+% \section*{Annexe 1 - Mindmap récapitulative des modules utiles en fonction des besoins}
+% \addcontentsline{toc}{section}{Annexe 1 - Mindmap récapitulative des modules utiles en fonction des besoins}
+%   \begin{figure}[!b]
+%     \begin{center}
+%       \includegraphics[width=15.5cm]{images/openerp_mindmap.jpg}
+%     \end{center}
+%   \end{figure}
+% \newpage
+
+  % Table des matières
+  \addcontentsline{toc}{chapter}{Tables des matières}
+  \tableofcontents
+  \newpage
 \end{document}
