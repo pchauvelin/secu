@@ -141,8 +141,6 @@ Le premier ver XSS a été créé en 2005 sur le réseau social mondial MySpace.
 
 Nous verrons dans une seconde partie les différentes phases de l'attaque de MySpace. Cette attaque étant l'une des plus grande en terme d'utilisateurs touchés, il y sera abordé la manière dont la faille a été découverte, le procédé de fabrication du code source visant exploiter celle-ci, la méthode de propagation et pour finir la solution qui été trouvé pour contourner l'attaque.
 
-<<<<<<< HEAD
-=======
     % chapter Introduction (end)
     \newpage
 
@@ -152,20 +150,6 @@ Nous verrons dans une seconde partie les différentes phases de l'attaque de MyS
   \section{Définition}
 Le XSS est une attaque visant les sites web qui affichent dynamiquement du contenu côté client et ce sans effectuer de contrôle des informations saisies par les utilisateurs. Les exploits Cross-Site Scripting consistent à forcer un site web à afficher du code HTML ou des scripts non autorisés et saisis par les utilisateurs. Le XSS est donc une attaque menée dans le but d'exécuter un code Javascript directement sur le poste de la victime. Cette technique est particulièrement utilisée par les pirates pour voler la session d'un utilisateur connecté.
 Si le pirate arrive à identifier un site web vulnérable, il a donc la possibilité d’insérer un script au sein d’une URL et de l’envoyé à une victime. Si cette dernière est connectée sur ce site web vulnérable, elle enverra immédiatement, et à son insu, son cookie de session au pirate. L'attaquant pourra alors utiliser ce cookie et voler la session de la victime pour mener des actions frauduleuses.
->>>>>>> e0ff5bb7f004a59fca9e58f2cd9ed81b3719d8c3
-
-
-    % chapter Introduction (end)
-    \newpage
-
-  % Chapitre 1
-  \chapter{Approche théorique} % (fold)
-  % Section 1
-  \section{Définition}
-
-  Le XSS est une attaque visant les sites web qui affichent dynamiquement du contenu côté client et ce sans effectuer de contrôle des informations saisies par les utilisateurs. Les exploits Cross-Site Scripting consistent à forcer un site web à afficher du code HTML ou des scripts non autorisés et saisis par les utilisateurs. Le XSS est donc une attaque menée dans le but d'exécuter un code Javascript directement sur le poste de la victime. Cette technique est particulièrement utilisée par les pirates pour voler la session d'un utilisateur connecté.
-
-  Si le pirate arrive à identifier un site web vulnérable, il a donc la possibilité d’insérer un script au sein d’une URL et de l’envoyé à une victime. Si cette dernière est connectée sur ce site web vulnérable, elle enverra immédiatement, et à son insu, son cookie de session au pirate. L'attaquant pourra alors utiliser ce cookie et voler la session de la victime pour mener des actions frauduleuses.
 
     \newpage
 
@@ -189,7 +173,7 @@ Il n'y a pas de classification officielle établie entre les différents types d
 
 
 \section{Vulnérabilité basé sur le DOM}
-  \\subsection{Définition} % (fold)
+  \subsection{Définition} % (fold)
   \label{sub:d_finition}
   Les attaques XSS basées sur le DOM (aussi appelé dans d'autres textes les \'XSS de type-0\') sont possibles grâce à la modification de l'environnement DOM dans le navigateur de la victime afin de faire exécuter d'une manière non-prévue le script côté client. La page elle même ne change pas mais le code côté client contenues dans la page s'exécutera différemment en raison des modifications malveillantes qui ont eu lieu dans l'environnement DOM.
 
@@ -203,25 +187,25 @@ Il n'y a pas de classification officielle établie entre les différents types d
   Le type 2, ou vulnérabilité persistente ou du second ordre, permet des exploitations plus en profondeur. C'est la faille des livres d'or, présente dans les forums, les formulaires d'inscription. La différence essentielle est que les données entrées sont stockées dans des bases de données et sont traitées quand un utilisateur les demande. Par conséquent, on peut affecter n'importe qui sollicitera un certain sujet dans un forum ou la liste des pseudos enregistrés, etc.. Cette faille peut permettre des éxécutions côté client ou côté serveur selon les cas et peut permettre tout type d'exploitation, de la récupération de cookies à l'éxécution de scripts malveillants. On a vu des XSS intégrés à des bases de données institutionnels rendant inaccessibles des dizaines de sites dépendants de ces contenus.
   Enfin, le type 0, connu comme le DOM-based ou local cross scripting site est un problème directement sur le script côté client (en général, le javscript) de la page (variables passées en URL qui sont réutilisées dans le javascript, etc..). Cette vulnérabilité est soit exploitée à nouveau par Social Engineering, soit par liens interposés dans lesquels on injecte du code qui sera ensuite éxécuté côté client. Celui-ci est finalement très sensible au type I et est très répandu et facilement repérable, notamment par des scanners automatisés.
 
-  \subsection{example} % (fold)
-  \label{sub:example}
-  Il n'est pas rare de trouver une application HTML qui contient du code JavaScript qui \textit{parse} l'adresse URL (en accédant à \lstinlinedocument.location} ou \lstinline{document.URL}) et réalise des actions côté client en se basant dessus. L'exemple ci-dessous est un exemple d'un tel scénario.
+  \subsection{exemple} % (fold)
+  \label{sub:exemple}
+  Il n'est pas rare de trouver une application HTML qui contient du code JavaScript qui \textit{parse} l'adresse URL (en accédant à \lstinline{document.location} ou \lstinline{document.URL}) et réalise des actions côté client en se basant dessus. L'exemple ci-dessous est un exemple d'un tel scénario.
 
   Supposons que le code suivant soit utilisé pour créer un formulaire afin de laisser l'utilisateur choisir sa langue préférée. La langue par défaut est également fourni dans la chaîne de requête (paramètre \"default\").
 
-% #TODO à écrire au format code
-%  Choisissez votre langue:
-%
-% Select your language:
-%
-% <select><script>
-%
-% document.write("<OPTION value=1>"+document.location.href.substring(% document.location.href.indexOf("default=")+8)+"</OPTION>");
-%
-% document.write("<OPTION value=2>English</OPTION>");
-%
-% </script></select>
-%  ...
+  \begin{lstlisting}[float=htb, language=html, frame=lines, caption={Code initial}, label={code:modelUser}]
+  Choisissez votre langue:
+
+  <select><script>
+
+   document.write("<OPTION value=1>"+document.location.href.substring(
+   document.location.href.indexOf("default=")+8)+"</OPTION>");
+
+   document.write("<OPTION value=2>English</OPTION>");
+
+  </script></select>
+  \end{lstlisting}
+
 
   La page est chargée avec l'url suivante:
 
@@ -235,17 +219,16 @@ Il n'y a pas de classification officielle établie entre les différents types d
 
   \lstinline{/page.html?default=<script>alert(document.cookie)</script>}
 
-  sur www.sitevulnerable.com. Le serveur répondra par la page contenant le code ci-dessus Javascript. Le navigateur créera un objet DOM dans la page (pour le select) en se basant sur le document.location qui sera la chaine de caractère:
-  \lstinline{http://www.sitevulnerable.com/page.html?default=<script>alert(document.cookie)</script>
-}
+  sur www.sitevulnerable.com. Le serveur répondra par la page contenant le code JavaScript ci-dessus. Le navigateur créera un objet DOM dans la page (pour le select) en se basant sur le document.location qui sera la chaine de caractère:
+  \lstinline{http://www.sitevulnerable.com/page.html?default=<script>alert(document.cookie)</script>}
 
   Le code original Javascript dans la page n'est pas prévu pour que le paramètre \"default\" contienne des balises HTML. De ce fait, dans notre cas, il va simplement écrire notre code HTML dans la page (le DOM) lors de son exécution. Le navigateur va alors afficher la page et exécuter le script de l'attaquant:
 
   \lstinline{alert(document.cookie)}
 
-  Nottons que la réponse HTTP envoyée par le serveur ne contient pas la charge utile (payload) de l'attaquant. Cette charge utile se manifest d'elle-même lors de l'exécution des scripts côté client. Ce type d'attaque est repérable par exemple dans le cas où un script défectueux accède à la variable \lstinline{document.location} et suppose son contenu malveillant.
+  Notons que la réponse HTTP envoyée par le serveur ne contient pas la charge utile (payload) de l'attaquant. Cette charge utile se manifeste d'elle-même lors de l'exécution des scripts côté client. Ce type d'attaque est repérable par exemple dans le cas où un script défectueux accède à la variable \lstinline{document.location} et suppose son contenu malveillant.
 
-  % subsection example (end)
+  % subsection exemple (end)
 
   % subsection d_finition (end)
     \newpage
@@ -256,9 +239,6 @@ Il n'y a pas de classification officielle établie entre les différents types d
     \subsection{XSS basé sur le DOM} % (fold)
     \label{sub:xss_bas_sur_le_dom}
     Comme nous l'avons dit précédement, lors d'une attaque XSS basée sur le DOM la charge utile n'était pas contenue dans la réponse HTTP du serveur mais à néanmoins été envoyée au serveur lors de la requête HTTP. On peut donc penser que cette attaque pourrait être détectée côté serveur. En réalité, il est possible d'éviter cette détection par le serveur et de passer par d'autres variables que \lstinline{document.location}.
-
-
-
 
     % subsection xss_bas_sur_le_dom (end)
 

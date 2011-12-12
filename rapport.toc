@@ -5,15 +5,19 @@
 \contentsline {section}{\numberline {1.2}Recherche de faille}{6}
 \contentsline {section}{\numberline {1.3}XSS r\IeC {\'e}fl\IeC {\'e}chi}{7}
 \contentsline {section}{\numberline {1.4}XSS stock\IeC {\'e}}{8}
-\contentsline {section}{\numberline {1.5}Solutions envisageables}{9}
-\contentsline {chapter}{\numberline {2}Cas MySpace}{10}
-\contentsline {section}{\numberline {2.1}D\IeC {\'e}couverte de la faille}{10}
-\contentsline {section}{\numberline {2.2}Charge utile(Payload)}{11}
-\contentsline {section}{\numberline {2.3}Propagation}{12}
-\contentsline {section}{\numberline {2.4}Conclusion}{13}
-\contentsline {chapter}{Conclusion}{14}
-\contentsline {chapter}{Glossaire}{15}
-\contentsline {chapter}{Bibliographie}{16}
-\contentsline {chapter}{Liste des figures}{17}
-\contentsline {chapter}{Annexes}{18}
-\contentsline {chapter}{Tables des mati\IeC {\`e}res}{18}
+\contentsline {section}{\numberline {1.5}Vuln\IeC {\'e}rabilit\IeC {\'e} bas\IeC {\'e} sur le DOM}{8}
+\contentsline {subsection}{\numberline {1.5.1}D\IeC {\'e}finition}{8}
+\contentsline {subsection}{\numberline {1.5.2}exemple}{9}
+\contentsline {section}{\numberline {1.6}Solutions envisageables}{11}
+\contentsline {subsection}{\numberline {1.6.1}XSS bas\IeC {\'e} sur le DOM}{11}
+\contentsline {chapter}{\numberline {2}Approche pratique}{12}
+\contentsline {section}{\numberline {2.1}Cas MySpace}{12}
+\contentsline {section}{\numberline {2.2}Charge utile(Payload)}{14}
+\contentsline {section}{\numberline {2.3}Propagation}{15}
+\contentsline {section}{\numberline {2.4}Conclusion}{16}
+\contentsline {chapter}{Conclusion}{17}
+\contentsline {chapter}{Glossaire}{18}
+\contentsline {chapter}{Bibliographie}{19}
+\contentsline {chapter}{Liste des figures}{20}
+\contentsline {chapter}{Annexes}{21}
+\contentsline {chapter}{Tables des mati\IeC {\`e}res}{21}
